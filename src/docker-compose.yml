@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  loadbalancer.workerservice:
+    image: ${DOCKER_REGISTRY-}loadbalancerworkerservice
+    build:
+      context: .
+      dockerfile: src/Payroc.LoadBalancer.WorkerService/Dockerfile
+
