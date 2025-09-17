@@ -9,16 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Directory.Build.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Directory.Build.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Payroc.LoadBalancer.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Payroc.LoadBalancer.Core.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Infrastructure/InfrastructureServicesContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Infrastructure/InfrastructureServicesContainer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +124,7 @@
       <workItem from="1758041518796" duration="1092000" />
       <workItem from="1758042678512" duration="397000" />
       <workItem from="1758043134796" duration="697000" />
-      <workItem from="1758044325670" duration="6244000" />
+      <workItem from="1758044325670" duration="8709000" />
     </task>
     <servers />
   </component>
@@ -190,6 +185,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs</url>
+          <line>51</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" containingFunctionPresentation="Constructor 'WorkerServiceTestBase'">
+            <startOffsets>
+              <option value="2274" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2322" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
