@@ -9,17 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/LoadBalancerOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerProviderOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ILoadBalancer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/IServer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/IServerProvider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ITrafficForwarder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Server.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/OptionsHelper.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerLocation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/TrafficForwarder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/LoadBalancerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/LoadBalancerOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerProviderOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerProviderOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac145bca2a599f9b0eff14a2a49c9eeb958a06dc5964346dab893a6b1ce83c/Guard.Null.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/OptionsHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -134,7 +135,7 @@
       <workItem from="1758041518796" duration="1092000" />
       <workItem from="1758042678512" duration="397000" />
       <workItem from="1758043134796" duration="697000" />
-      <workItem from="1758044325670" duration="17909000" />
+      <workItem from="1758044325670" duration="22991000" />
     </task>
     <servers />
   </component>
