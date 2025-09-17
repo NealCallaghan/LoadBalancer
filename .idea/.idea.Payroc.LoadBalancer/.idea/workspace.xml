@@ -9,16 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/OptionsHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerLocation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/TrafficForwarder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/LoadBalancerOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/LoadBalancerOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerProviderOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerProviderOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +42,7 @@
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/38284ca4f4afe378f96fccac3e179f4bceda7a74eb151623b66d2dc3634d9b/ExceptionAggregator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ee76fb4aded5e9da6e66cc2dcb127fac08d3ec5ac84fc6db9d4ee1d2e38/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac145bca2a599f9b0eff14a2a49c9eeb958a06dc5964346dab893a6b1ce83c/Guard.Null.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -135,7 +130,7 @@
       <workItem from="1758041518796" duration="1092000" />
       <workItem from="1758042678512" duration="397000" />
       <workItem from="1758043134796" duration="697000" />
-      <workItem from="1758044325670" duration="22991000" />
+      <workItem from="1758044325670" duration="23930000" />
     </task>
     <servers />
   </component>
@@ -198,17 +193,56 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs</url>
-          <line>51</line>
-          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" containingFunctionPresentation="Constructor 'WorkerServiceTestBase'">
+          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs</url>
+          <line>13</line>
+          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" containingFunctionPresentation="Method 'RegisterCoreServices'">
             <startOffsets>
-              <option value="2274" />
+              <option value="449" />
             </startOffsets>
             <endOffsets>
-              <option value="2322" />
+              <option value="515" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs</url>
+          <line>8</line>
+          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs" containingFunctionPresentation="Method 'StartAsync'">
+            <startOffsets>
+              <option value="254" />
+            </startOffsets>
+            <endOffsets>
+              <option value="347" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs</url>
+          <line>17</line>
+          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" containingFunctionPresentation="Method 'Start'">
+            <startOffsets>
+              <option value="545" />
+            </startOffsets>
+            <endOffsets>
+              <option value="566" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" containingFunctionPresentation="Method 'GetNextServer'">
+            <startOffsets>
+              <option value="651" />
+            </startOffsets>
+            <endOffsets>
+              <option value="675" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

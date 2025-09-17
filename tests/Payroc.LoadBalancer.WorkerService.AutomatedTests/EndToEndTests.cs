@@ -10,7 +10,7 @@ public class EndToEndTests(ITestOutputHelper output) : WorkerServiceTestBase<Loa
     [Fact]
     public async Task RequestIsMadeThroughLoadbalancer_ThereIsServer_ResponseIsReceived()
     {
-        const string loadBalancerAddress = "http://localhost:8081";
+        const string loadBalancerAddress = "http://127.0.0.1:5000";
         
         var response = await Client.GetAsync(loadBalancerAddress);
         response.EnsureSuccessStatusCode();

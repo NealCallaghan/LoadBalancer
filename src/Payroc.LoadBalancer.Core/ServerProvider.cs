@@ -11,7 +11,7 @@ public sealed class ServerProvider : IServerProvider
     public ServerProvider(ILogger<ServerProvider> logger, IReadOnlyCollection<IServer> servers)
     {
         _logger = logger;
-        if (servers.Any())
+        if (!servers.Any())
         {
             throw new ApplicationException("No servers configured");
         }
