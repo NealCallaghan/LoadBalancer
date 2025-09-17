@@ -11,6 +11,7 @@ var services = builder.Services;
 services
     .ConfigureHostOptions(configuration)
     .RegisterCoreServices(configuration)
+    .AddHttpServices()
     .AddHostedService<Worker>();
 
 var host = builder.Build();

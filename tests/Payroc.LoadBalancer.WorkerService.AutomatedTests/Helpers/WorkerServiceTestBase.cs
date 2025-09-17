@@ -44,15 +44,17 @@ public abstract class WorkerServiceTestBase<TWebApplicationFactory, TEntryPoint>
                 });
             });
 
-        _ = ContainerApplicationFactory.CreateClient(new WebApplicationFactoryClientOptions
-        {
-            AllowAutoRedirect = false,
-        });
+        // HttpClient = ContainerApplicationFactory.CreateClient(new WebApplicationFactoryClientOptions
+        // {
+        //     AllowAutoRedirect = false,
+        // });
 
         Services = ContainerApplicationFactory.Services;
+        Client = Services.GetRequiredService<IHttpClientFactory>().CreateClient();
     }
 
     public IServiceProvider Services { get; }
+    public HttpClient Client { get; set; }
 
     public void Dispose() =>
         ContainerApplicationFactory?.Dispose();

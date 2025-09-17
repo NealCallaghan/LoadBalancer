@@ -3,6 +3,7 @@ using Docker.DotNet.Models;
 using DotNet.Testcontainers.Builders;
 using DotNet.Testcontainers.Containers;
 using DotNet.Testcontainers.Networks;
+using Payroc.LoadBalancer.WorkerService.AutomatedTests.Helpers;
 
 namespace Payroc.LoadBalancer.WorkerService.AutomatedTests.Infrastructure;
 
@@ -17,12 +18,29 @@ public class InfrastructureServicesContainer : IAsyncLifetime
         _loadbalancerManagementNetwork = new NetworkBuilder()
             .WithName(Guid.NewGuid().ToString("D"))
             .Build();
-
         
-
+        var solutionPath = CommonDirectoryPath.GetSolutionDirectory();
+        var testServerImage = new ImageFromDockerfileBuilder()
+            .WithDockerfileDirectory(solutionPath, $"{solutionPath.DirectoryPath}/TestApplications/TestServer/TestServer")
+            .WithDockerfile("Dockerfile")
+            .WithName("testserver:latest")
+            .WithCleanUp(false)
+            .Build();
+        
+        testServerImage.CreateAsync().RunSync();
+        
+        var testServer = new ContainerBuilder()
+            .WithImage(testServerImage)
+            .WithName("testserver1")
+            .WithHostname("testserver1")
+            .WithNetwork(_loadbalancerManagementNetwork)
+            .WithPortBinding(5001, 8080) 
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(8080))
+            .Build();
+        
         _containers = new List<IContainer>
         {
-
+            testServer,
         };
     }
 
