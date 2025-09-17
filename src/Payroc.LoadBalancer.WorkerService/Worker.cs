@@ -1,4 +1,5 @@
 using Payroc.LoadBalancer.Core;
+using Payroc.LoadBalancer.Core.Services;
 
 namespace Payroc.LoadBalancer.WorkerService;
 

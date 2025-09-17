@@ -1,7 +1,8 @@
 using System.Net.Sockets;
 using Microsoft.Extensions.Logging;
+using Payroc.LoadBalancer.Core.Backend;
 
-namespace Payroc.LoadBalancer.Core;
+namespace Payroc.LoadBalancer.Core.Services;
 
 public sealed class LoadBalancer(
     ILogger<LoadBalancer> logger,

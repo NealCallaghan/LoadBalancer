@@ -1,4 +1,4 @@
-namespace Payroc.LoadBalancer.Core;
+namespace Payroc.LoadBalancer.Core.Services;
 
 public interface ILoadBalancer
 {

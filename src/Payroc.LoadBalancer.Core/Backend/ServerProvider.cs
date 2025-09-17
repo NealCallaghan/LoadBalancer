@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Logging;
 using Payroc.LoadBalancer.Core.DependencyInjection.Options;
 
-namespace Payroc.LoadBalancer.Core;
+namespace Payroc.LoadBalancer.Core.Backend;
 
 public sealed class ServerProvider : IServerProvider
 {

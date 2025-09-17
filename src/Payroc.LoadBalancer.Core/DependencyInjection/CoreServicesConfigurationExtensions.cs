@@ -1,6 +1,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Payroc.LoadBalancer.Core.Backend;
 using Payroc.LoadBalancer.Core.DependencyInjection.Options;
+using Payroc.LoadBalancer.Core.Services;
 
 namespace Payroc.LoadBalancer.Core.DependencyInjection;
 
@@ -15,7 +17,7 @@ public static class CoreServicesConfigurationExtensions
 
         serviceCollection.AddSingleton<IServerProvider, ServerProvider>();
         serviceCollection.AddSingleton<ITrafficForwarder, TrafficForwarder>();
-        serviceCollection.AddSingleton<ILoadBalancer, LoadBalancer>();
+        serviceCollection.AddSingleton<ILoadBalancer, Services.LoadBalancer>();
         
         return serviceCollection;
     }
