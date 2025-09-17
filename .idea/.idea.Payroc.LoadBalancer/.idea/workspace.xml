@@ -10,17 +10,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Payroc.LoadBalancer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Payroc.LoadBalancer.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ILoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/ILoadBalancer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/IServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/IServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ITrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/ITrafficForwarder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/Server.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/TrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Worker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Directory.Build.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Directory.Build.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/Payroc.LoadBalancer.Core.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/Payroc.LoadBalancer.Core.UnitTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +70,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/4-round-robin",
     "last_opened_file_path": "/home/neal/Documents/dev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

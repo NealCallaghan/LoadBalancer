@@ -12,6 +12,7 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
         var server = serverProvider.GetNextServer();
         using var backendClient = new TcpClient();
         
+        // TODO what happens if there is an exception here
         await backendClient.ConnectAsync(server.IpAddress, server.Port, cancellationToken);
         logger.LogDebug("Established a connection to server on {IpAddress}:{Port} at {TimeNow}", server.IpAddress, server.Port, DateTime.UtcNow);
         
