@@ -1,14 +1,13 @@
 using Microsoft.Extensions.Logging;
-using Payroc.LoadBalancer.Core.DependencyInjection.Options;
 
 namespace Payroc.LoadBalancer.Core.Backend;
 
-public sealed class ServerProvider : IServerProvider
+public sealed class ServerProvider : IServerProvider, IServerUpdater
 {
     private readonly ILogger<ServerProvider> _logger;
-    private readonly IReadOnlyCollection<IServer>  _servers;
+    private readonly IReadOnlyCollection<Server>  _servers;
     
-    public ServerProvider(ILogger<ServerProvider> logger, IReadOnlyCollection<IServer> servers)
+    public ServerProvider(ILogger<ServerProvider> logger, IReadOnlyCollection<Server> servers)
     {
         _logger = logger;
         if (!servers.Any())
@@ -19,8 +18,18 @@ public sealed class ServerProvider : IServerProvider
         _servers = servers;
     }
     
-    public IServer GetNextServer()
+    public Server GetNextServer()
     {
         return _servers.First();
+    }
+
+    public void SetServerUsed(Server server)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetServerAsUnresponsive(Server server)
+    {
+        throw new NotImplementedException();
     }
 }

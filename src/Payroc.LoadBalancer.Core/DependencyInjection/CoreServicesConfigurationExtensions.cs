@@ -30,8 +30,8 @@ public static class CoreServicesConfigurationExtensions
         configuration.GetSection(nameof(LoadBalancerOptions)).Bind(loadBalancerOptions);
         
         var (serverAddress, serverPort) = ValidateOptionsOrThrow(loadBalancerOptions.ServerLocation!);
-        var loadBalancerServer = new Server(serverAddress, serverPort);
-        serviceCollection.AddSingleton<IServer>(loadBalancerServer);
+        var loadBalancerServer = new LoadBalancerServer(serverAddress, serverPort);
+        serviceCollection.AddSingleton(loadBalancerServer);
         
         ServerProviderOptions serverProviderOptions = new();
         configuration.GetSection(nameof(ServerProviderOptions)).Bind(serverProviderOptions);
@@ -39,9 +39,9 @@ public static class CoreServicesConfigurationExtensions
         var servers = serverProviderOptions.Servers.Select(server =>
         {
             var (address, port) = ValidateOptionsOrThrow(server);
-            return new Server(address, port);
+            return new Server(address, port, new ServerMetadata(true, 0));
         }).ToList();
         
-        serviceCollection.AddSingleton<IReadOnlyCollection<IServer>>(servers);
+        serviceCollection.AddSingleton<IReadOnlyCollection<Server>>(servers);
     }
 }

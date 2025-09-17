@@ -10,11 +10,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Directory.Build.targets" beforeDir="false" afterPath="$PROJECT_DIR$/Directory.Build.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/Payroc.LoadBalancer.Core.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/Payroc.LoadBalancer.Core.UnitTests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,13 +187,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
-          <line>11</line>
+          <line>12</line>
           <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'Test1'">
             <startOffsets>
-              <option value="504" />
+              <option value="528" />
             </startOffsets>
             <endOffsets>
-              <option value="505" />
+              <option value="529" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
@@ -226,10 +229,10 @@
           <line>17</line>
           <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/LoadBalancer.cs" containingFunctionPresentation="Method 'Start'">
             <startOffsets>
-              <option value="594" />
+              <option value="605" />
             </startOffsets>
             <endOffsets>
-              <option value="615" />
+              <option value="626" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="19" />
@@ -239,10 +242,10 @@
           <line>23</line>
           <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/ServerProvider.cs" containingFunctionPresentation="Method 'GetNextServer'">
             <startOffsets>
-              <option value="659" />
+              <option value="612" />
             </startOffsets>
             <endOffsets>
-              <option value="683" />
+              <option value="636" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
