@@ -1,6 +1,9 @@
 using Payroc.LoadBalancer.Core.DependencyInjection;
 using Payroc.LoadBalancer.WorkerService;
 using Payroc.LoadBalancer.WorkerService.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 var builder = Host.CreateApplicationBuilder(args);
 
