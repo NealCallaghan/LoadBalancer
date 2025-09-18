@@ -44,13 +44,9 @@ public abstract class WorkerServiceTestBase<TWebApplicationFactory, TEntryPoint>
                 });
             });
 
-        // HttpClient = ContainerApplicationFactory.CreateClient(new WebApplicationFactoryClientOptions
-        // {
-        //     AllowAutoRedirect = false,
-        // });
-
         Services = ContainerApplicationFactory.Services;
         Client = Services.GetRequiredService<IHttpClientFactory>().CreateClient();
+        Client.DefaultRequestHeaders.ConnectionClose = true; //Ensures connections are new
     }
 
     public IServiceProvider Services { get; }

@@ -13,5 +13,6 @@
     &lt;TestId&gt;xUnit::12A36218-0B3C-4CB5-A08B-49B0531E00D1::net9.0::Payroc.LoadBalancer.Core.UnitTests.ServerProviderTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::EEB19F96-59F1-49AD-84C2-6C0A8D966A65::net9.0::Payroc.LoadBalancer.WorkerService.AutomatedTests.EndToEndTests.ManyRequestsAreMadeThroughLoadbalancer_ThereIsServer_ResponseIsReceived&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::EEB19F96-59F1-49AD-84C2-6C0A8D966A65::net9.0::Payroc.LoadBalancer.WorkerService.AutomatedTests.EndToEndTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::12A36218-0B3C-4CB5-A08B-49B0531E00D1::net9.0::Payroc.LoadBalancer.Core.UnitTests.HealthCheckerTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

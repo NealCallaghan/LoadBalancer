@@ -29,10 +29,11 @@ public class InfrastructureServicesContainer : IAsyncLifetime
         
         testServerImage.CreateAsync().RunSync();
         
-        var testServer = new ContainerBuilder()
+        var testServer1 = new ContainerBuilder()
             .WithImage(testServerImage)
             .WithName("testserver1")
             .WithHostname("testserver1")
+            .WithEnvironment("ServerId", "1")
             .WithNetwork(_loadbalancerManagementNetwork)
             .WithPortBinding(5001, 8080) 
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(8080))
@@ -40,9 +41,22 @@ public class InfrastructureServicesContainer : IAsyncLifetime
         
         _containerNames.Add("testserver1");
         
+        var testServer2 = new ContainerBuilder()
+            .WithImage(testServerImage)
+            .WithName("testserver2")
+            .WithHostname("testserver2")
+            .WithEnvironment("ServerId", "2")
+            .WithNetwork(_loadbalancerManagementNetwork)
+            .WithPortBinding(5002, 8080) 
+            .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(8080))
+            .Build();
+
+        _containerNames.Add("testserver2");
+        
         _containers = new List<IContainer>
         {
-            testServer,
+            testServer1,
+            testServer2,
         };
     }
 

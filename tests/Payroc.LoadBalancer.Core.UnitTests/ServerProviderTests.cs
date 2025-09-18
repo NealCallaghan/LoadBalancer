@@ -22,7 +22,7 @@ public class ServerProviderTests
     private static ConcurrentDictionary<Server, Server> CreateServerDictionary(params Server[] servers)
     {
         var dict = new ConcurrentDictionary<Server, Server>();
-        foreach (var s in servers)
+        foreach (var s in servers.OrderBy(x => x.Port))
         {
             dict.TryAdd(s, s);
         }
