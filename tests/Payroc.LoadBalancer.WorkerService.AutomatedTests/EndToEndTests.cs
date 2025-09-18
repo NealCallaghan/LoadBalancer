@@ -60,7 +60,7 @@ public class EndToEndTests: WorkerServiceTestBase<LoadBalancerWebApplicationFact
     public async Task RequestIsMadeThroughLoadbalancer_ThereAreTwoServersOneUnhealthy_ResponseIsReceivedByHealthy()
     {
         await SetServerHealthy(Server1Address, false);
-        await Task.Delay(2000); //Not pretty but we have to wait for the health service
+        await Task.Delay(5000); //Not pretty but we have to wait for the health service
         
         var response = await Client.GetAsync(LoadBalancerAddress);
         
