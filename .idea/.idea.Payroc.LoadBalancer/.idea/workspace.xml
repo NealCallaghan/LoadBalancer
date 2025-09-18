@@ -9,10 +9,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/HealthServiceOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/HealthChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/IHeathChecker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/HealthCheckerTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Payroc.LoadBalancer.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestApplications/TestServer/TestServer/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Helpers/WorkerServiceTestBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Infrastructure/InfrastructureServicesContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/Infrastructure/InfrastructureServicesContainer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +49,6 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/271b8d2d9d94e13a469269f46758864f64ad438c3174f74d4a591af6410e96b/Future.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/38284ca4f4afe378f96fccac3e179f4bceda7a74eb151623b66d2dc3634d9b/ExceptionAggregator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c32b6774a69464667352a9e262bc924c57674f811c382e29abe8dbe3639f4c/CancellationToken.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,7 +61,9 @@
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/OptionsHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/ServerLocation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Exceptions/NoAvailableServersException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/IHeathChecker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/LoadBalancer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/HealthCheckerTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -72,7 +83,7 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/4-round-robin&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/5-health-checker&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/neal/Documents/dev&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -140,7 +151,8 @@
       <workItem from="1758181388024" duration="3749000" />
       <workItem from="1758185187500" duration="58000" />
       <workItem from="1758185719350" duration="111000" />
-      <workItem from="1758185888068" duration="3764000" />
+      <workItem from="1758185888068" duration="14825000" />
+      <workItem from="1758202251998" duration="1978000" />
     </task>
     <servers />
   </component>
@@ -191,42 +203,94 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
-          <line>12</line>
+          <line>23</line>
           <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'Test1'">
             <startOffsets>
-              <option value="528" />
+              <option value="884" />
             </startOffsets>
             <endOffsets>
-              <option value="529" />
+              <option value="885" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs</url>
-          <line>38</line>
-          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" containingFunctionPresentation="Method 'GetNextServer'">
-            <startOffsets>
-              <option value="1355" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1376" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
-          <line>28</line>
+          <line>35</line>
           <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'RequestIsMadeThroughLoadbalancer_ThereIsServer_ResponseIsReceivedWithMessage'">
             <startOffsets>
-              <option value="1053" />
+              <option value="1255" />
             </startOffsets>
             <endOffsets>
-              <option value="1104" />
+              <option value="1320" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
+          <line>47</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'TwoRequestsAreMadeThroughLoadbalancer_RequestsAreShared_ResponseIsReceivedWithMessage'">
+            <startOffsets>
+              <option value="1711" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1770" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs</url>
+          <line>11</line>
+          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" containingFunctionPresentation="Method 'HandleForwarding'">
+            <startOffsets>
+              <option value="409" />
+            </startOffsets>
+            <endOffsets>
+              <option value="476" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
+          <line>97</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'SetServerHealthy'">
+            <startOffsets>
+              <option value="3547" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3613" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" containingFunctionPresentation="Method 'GetNextServer_ReturnsFirstServer'">
+            <startOffsets>
+              <option value="1774" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1840" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs</url>
+          <line>103</line>
+          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" containingFunctionPresentation="Method 'SetServerUsed_ReturnsSecondServer'">
+            <startOffsets>
+              <option value="3674" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3714" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

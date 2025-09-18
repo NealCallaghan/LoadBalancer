@@ -20,6 +20,7 @@ public static class CoreServicesConfigurationExtensions
         serviceCollection.AddSingleton<IServerUpdater, ServerProvider>();
         serviceCollection.AddSingleton<ITrafficForwarder, TrafficForwarder>();
         serviceCollection.AddSingleton<ILoadBalancer, Services.LoadBalancer>();
+        serviceCollection.AddSingleton<IHeathChecker, HealthChecker>();
         
         return serviceCollection;
     }
@@ -28,6 +29,10 @@ public static class CoreServicesConfigurationExtensions
         this IServiceCollection serviceCollection,
         IConfiguration configuration)
     {
+        HealthServiceOptions healthServiceOptions = new();
+        configuration.GetSection(nameof(HealthServiceOptions)).Bind(healthServiceOptions);
+        serviceCollection.AddSingleton(healthServiceOptions);
+        
         LoadBalancerOptions loadBalancerOptions = new();
         configuration.GetSection(nameof(LoadBalancerOptions)).Bind(loadBalancerOptions);
         serviceCollection.AddSingleton(loadBalancerOptions);

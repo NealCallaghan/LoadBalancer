@@ -7,12 +7,14 @@ namespace Payroc.LoadBalancer.Core.Services;
 public sealed class LoadBalancer(
     ILogger<LoadBalancer> logger,
     ITrafficForwarder trafficForwarder,
+    IHeathChecker healthChecker,
     LoadBalancerServer loadBalancerServer)
     : ILoadBalancer, IDisposable
 {
     private readonly TcpListener _tcpListener = new(loadBalancerServer.IpAddress, loadBalancerServer.Port);
     private CancellationTokenSource? _cancellationTokenSource;
-    private Task? _task;
+    private Task? _loadBalancerTask;
+    private Task? _healthCheckTask;
 
     public Task Start(CancellationToken cancellationToken)
     {
@@ -20,8 +22,9 @@ public sealed class LoadBalancer(
         _cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
         
         logger.LogInformation("Started TcpListener at: {TimeNow}", DateTime.UtcNow);
-
-        _task = Task.Run(async () => await PerformTcpListening(), _cancellationTokenSource.Token);
+        
+        _loadBalancerTask = Task.Run(async () => await PerformTcpListening(), _cancellationTokenSource.Token);
+        _healthCheckTask = Task.Run(async () => await healthChecker.Initialize(_cancellationTokenSource.Token), _cancellationTokenSource.Token);
         
         return Task.CompletedTask;
     }
@@ -33,15 +36,27 @@ public sealed class LoadBalancer(
         await _cancellationTokenSource?.CancelAsync()!;
         _tcpListener.Stop();
 
-        if (_task != null)
+        if (_loadBalancerTask != null)
         {
             try
             {
-                await _task;
+                await _loadBalancerTask;
             }
             catch (OperationCanceledException)
             {
                 logger.LogInformation("Stopped TcpListener at: {TimeNow}", DateTime.UtcNow);
+            }
+        }
+        
+        if (_healthCheckTask != null)
+        {
+            try
+            {
+                await _healthCheckTask;
+            }
+            catch (OperationCanceledException)
+            {
+                logger.LogInformation("Stopped Health Checker at: {TimeNow}", DateTime.UtcNow);
             }
         }
     }
