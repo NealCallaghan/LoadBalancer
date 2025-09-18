@@ -13,7 +13,7 @@ namespace Payroc.LoadBalancer.Core.UnitTests;
 public class HealthCheckerTests
 {
     private readonly Mock<ILogger<HealthChecker>> _logger = new();
-    private readonly HealthServiceOptions _options = new() { HealthServiceDelayInSeconds = 1 };
+    private readonly HealthServiceOptions _options = new() { HealthServiceDelaySeconds = 1 };
 
     private static HttpClient CreateHttpClientReturning(HttpStatusCode statusCode, string? content = null)
     {

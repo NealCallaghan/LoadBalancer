@@ -2,5 +2,5 @@ namespace Payroc.LoadBalancer.Core.DependencyInjection.Options;
 
 public sealed class HealthServiceOptions
 {
-    public int HealthServiceDelayInSeconds { get; set; }
+    public int HealthServiceDelaySeconds { get; set; }
 }
