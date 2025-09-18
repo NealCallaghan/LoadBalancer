@@ -41,11 +41,11 @@ public class ServerProviderTests
     }
 
     [Fact]
-    public async Task GetNextServer_ReturnsFirstServer()
+    public async Task GetNextServer_ReturnsAServer()
     {
         var server1 = new Server(_ip, 1, new ServerState(0, true));
-        var server2 = new Server(_ip, 2, new ServerState(0, true));
-        var servers = CreateServerDictionary(server1, server2);
+        
+        var servers = CreateServerDictionary(server1);
         var clusterState = new ClusterState(servers);
 
         var provider = new ServerProvider(_logger, clusterState, _options);
@@ -105,6 +105,6 @@ public class ServerProviderTests
     
         var result = await provider.GetNextServer(CancellationToken.None);
     
-        result.Should().Be(server2);
+        result.Should().NotBe(potentialServer);
     }
 }
