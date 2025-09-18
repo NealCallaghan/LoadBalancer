@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroc.LoadBalancer.WorkerS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Payroc.LoadBalancer.WorkerService.AutomatedTests", "tests\Payroc.LoadBalancer.WorkerService.AutomatedTests\Payroc.LoadBalancer.WorkerService.AutomatedTests.csproj", "{EEB19F96-59F1-49AD-84C2-6C0A8D966A65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payroc.LoadBalancer.Core.UnitTests", "tests\Payroc.LoadBalancer.Core.UnitTests\Payroc.LoadBalancer.Core.UnitTests.csproj", "{12A36218-0B3C-4CB5-A08B-49B0531E00D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{EEB19F96-59F1-49AD-84C2-6C0A8D966A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEB19F96-59F1-49AD-84C2-6C0A8D966A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEB19F96-59F1-49AD-84C2-6C0A8D966A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A36218-0B3C-4CB5-A08B-49B0531E00D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A36218-0B3C-4CB5-A08B-49B0531E00D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A36218-0B3C-4CB5-A08B-49B0531E00D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A36218-0B3C-4CB5-A08B-49B0531E00D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{98B3329E-2EC0-4FA4-A3FB-693DA1454901} = {660670D8-196F-48B5-A8AD-F50CECB59080}
 		{6CF10890-E546-4712-81E5-A79FCE774791} = {660670D8-196F-48B5-A8AD-F50CECB59080}
 		{EEB19F96-59F1-49AD-84C2-6C0A8D966A65} = {6630CFBF-72C5-47D3-B18E-D84DF8C006F2}
+		{12A36218-0B3C-4CB5-A08B-49B0531E00D1} = {6630CFBF-72C5-47D3-B18E-D84DF8C006F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1EE31AB9-7298-4894-8ACA-96B9FDF3DB17}

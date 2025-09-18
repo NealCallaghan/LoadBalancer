@@ -1,12 +1,13 @@
 using System.Net.Sockets;
 using Microsoft.Extensions.Logging;
+using Payroc.LoadBalancer.Core.Backend;
 
-namespace Payroc.LoadBalancer.Core;
+namespace Payroc.LoadBalancer.Core.Services;
 
 public sealed class LoadBalancer(
     ILogger<LoadBalancer> logger,
     ITrafficForwarder trafficForwarder,
-    IServer loadBalancerServer)
+    LoadBalancerServer loadBalancerServer)
     : ILoadBalancer, IDisposable
 {
     private readonly TcpListener _tcpListener = new(loadBalancerServer.IpAddress, loadBalancerServer.Port);

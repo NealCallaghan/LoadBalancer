@@ -38,6 +38,8 @@ public class InfrastructureServicesContainer : IAsyncLifetime
             .WithWaitStrategy(Wait.ForUnixContainer().UntilPortIsAvailable(8080))
             .Build();
         
+        _containerNames.Add("testserver1");
+        
         _containers = new List<IContainer>
         {
             testServer,
@@ -86,6 +88,29 @@ public class InfrastructureServicesContainer : IAsyncLifetime
                     {
                         All = true
                     }, cts.Token)).SelectMany(x => x.Names).ToHashSet();
+
+                var allRunningContainers = await client.Containers.ListContainersAsync(
+                    new ContainersListParameters
+                    {
+                        All = true
+                    }, cts.Token);
+
+                var conflictingContainers = 
+                    allRunningContainers.Where(x => _containerNames.Contains(x.Names.First().TrimStart('/')));
+
+                foreach (var container in conflictingContainers)
+                {
+                    if (container.State == "running")
+                    {
+                        await client.Containers.StopContainerAsync(container.ID, new ContainerStopParameters(), cts.Token);
+                    }
+
+                    // Remove the container entirely
+                    await client.Containers.RemoveContainerAsync(
+                        container.ID,
+                        new ContainerRemoveParameters { Force = true },
+                        cts.Token);
+                }
             }
             while (_containerNames.Any(containerName => runningContainers.Contains($"/{containerName}")));
         }, cts.Token);

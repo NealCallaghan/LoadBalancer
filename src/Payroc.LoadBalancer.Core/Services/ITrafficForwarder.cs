@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 
-namespace Payroc.LoadBalancer.Core;
+namespace Payroc.LoadBalancer.Core.Services;
 
 public interface ITrafficForwarder
 {

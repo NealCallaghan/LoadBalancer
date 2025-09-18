@@ -1,6 +1,9 @@
+using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Payroc.LoadBalancer.Core.Backend;
 using Payroc.LoadBalancer.Core.DependencyInjection.Options;
+using Payroc.LoadBalancer.Core.Services;
 
 namespace Payroc.LoadBalancer.Core.DependencyInjection;
 
@@ -14,8 +17,9 @@ public static class CoreServicesConfigurationExtensions
         serviceCollection.RegisterOptionsFromConfiguration(configuration);
 
         serviceCollection.AddSingleton<IServerProvider, ServerProvider>();
+        serviceCollection.AddSingleton<IServerUpdater, ServerProvider>();
         serviceCollection.AddSingleton<ITrafficForwarder, TrafficForwarder>();
-        serviceCollection.AddSingleton<ILoadBalancer, LoadBalancer>();
+        serviceCollection.AddSingleton<ILoadBalancer, Services.LoadBalancer>();
         
         return serviceCollection;
     }
@@ -26,10 +30,11 @@ public static class CoreServicesConfigurationExtensions
     {
         LoadBalancerOptions loadBalancerOptions = new();
         configuration.GetSection(nameof(LoadBalancerOptions)).Bind(loadBalancerOptions);
+        serviceCollection.AddSingleton(loadBalancerOptions);
         
         var (serverAddress, serverPort) = ValidateOptionsOrThrow(loadBalancerOptions.ServerLocation!);
-        var loadBalancerServer = new Server(serverAddress, serverPort);
-        serviceCollection.AddSingleton<IServer>(loadBalancerServer);
+        var loadBalancerServer = new LoadBalancerServer(serverAddress, serverPort);
+        serviceCollection.AddSingleton(loadBalancerServer);
         
         ServerProviderOptions serverProviderOptions = new();
         configuration.GetSection(nameof(ServerProviderOptions)).Bind(serverProviderOptions);
@@ -37,9 +42,13 @@ public static class CoreServicesConfigurationExtensions
         var servers = serverProviderOptions.Servers.Select(server =>
         {
             var (address, port) = ValidateOptionsOrThrow(server);
-            return new Server(address, port);
-        }).ToList();
+            return new Server(address, port, new ServerState(0, true));
+        });
         
-        serviceCollection.AddSingleton<IReadOnlyCollection<IServer>>(servers);
+        var concurrentDictionary = new ConcurrentDictionary<Server, Server>(
+            servers.Select(x => new KeyValuePair<Server, Server>(x, x)));
+        
+        var clusterState = new ClusterState(concurrentDictionary);
+        serviceCollection.AddSingleton(clusterState);
     }
 }
