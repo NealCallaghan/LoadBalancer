@@ -50,7 +50,7 @@ public class HealthChecker(
                 logger.LogError(ex, "Error during health check loop.");
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(options.HealthServiceDelayInSeconds), cancellationToken);
+            await Task.Delay(TimeSpan.FromSeconds(options.HealthServiceDelaySeconds), cancellationToken);
         }
     }
 }

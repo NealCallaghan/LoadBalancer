@@ -1,4 +1,4 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG TARGETARCH
 
 COPY ["Directory.Build.targets", "Directory.Build.targets"]
@@ -11,15 +11,12 @@ COPY ["src/Payroc.LoadBalancer.Core", "Payroc.LoadBalancer.Core"]
 RUN dotnet restore "Payroc.LoadBalancer.WorkerService/Payroc.LoadBalancer.WorkerService.csproj" -a $TARGETARCH
 RUN dotnet publish "Payroc.LoadBalancer.WorkerService/Payroc.LoadBalancer.WorkerService.csproj" -a $TARGETARCH -o /app/publish --no-restore
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 
 WORKDIR /app
 
-RUN adduser --disabled-password --shell /sbin/nologin -g "" -u 10001 dotnet && \
-    chown -R dotnet /app
-
 COPY --from=build /app/publish .
 
-USER dotnet
+EXPOSE 5000
 
-ENTRYPOINT ["./Payroc.LoadBalancer.WorkerService"]
+ENTRYPOINT ["dotnet", "Payroc.LoadBalancer.WorkerService.dll"]
