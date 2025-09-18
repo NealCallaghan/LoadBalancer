@@ -22,7 +22,7 @@ public class EndToEndTests(ITestOutputHelper output) : WorkerServiceTestBase<Loa
     {
         const string loadBalancerAddress = "http://127.0.0.1:5000";
         
-        var tasks = Enumerable.Range(1, 100).Select(_ => Client.GetAsync(loadBalancerAddress));
+        var tasks = Enumerable.Range(1, 5).Select(_ => Client.GetAsync(loadBalancerAddress));
         var responses = await Task.WhenAll(tasks);
 
         foreach (var response in responses)

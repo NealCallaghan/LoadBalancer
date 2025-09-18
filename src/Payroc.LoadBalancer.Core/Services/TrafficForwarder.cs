@@ -4,12 +4,12 @@ using Payroc.LoadBalancer.Core.Backend;
 
 namespace Payroc.LoadBalancer.Core.Services;
 
-public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider serverProvider)
+public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider serverProvider, IServerUpdater serverUpdater)
     : ITrafficForwarder
 {
     public async Task HandleForwarding(TcpClient client, CancellationToken cancellationToken)
     {
-        var server = serverProvider.GetNextServer();
+        var server = await serverProvider.GetNextServer(cancellationToken);
         using var backendClient = new TcpClient();
         
         // TODO what happens if there is an exception here
@@ -33,5 +33,7 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
             
             logger.LogDebug("Closed connections between client and server");
         }
+        
+        serverUpdater.SetServerUsed(server);
     }
 }

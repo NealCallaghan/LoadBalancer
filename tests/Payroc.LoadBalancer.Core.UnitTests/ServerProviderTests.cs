@@ -1,8 +1,11 @@
-﻿using System.Net;
+﻿using System.Collections.Concurrent;
+using System.Net;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Payroc.LoadBalancer.Core.Backend;
+using Payroc.LoadBalancer.Core.DependencyInjection.Options;
+using Payroc.LoadBalancer.Core.Exceptions;
 
 namespace Payroc.LoadBalancer.Core.UnitTests;
 
@@ -10,76 +13,98 @@ public class ServerProviderTests
 {
     private readonly ILogger<ServerProvider> _logger = Mock.Of<ILogger<ServerProvider>>();
     private readonly IPAddress _ip = IPAddress.Parse("127.0.0.1");
+
+    private readonly LoadBalancerOptions _options = new LoadBalancerOptions
+    {
+        MillisecondsBetweenRequestsIfBusy = 50
+    };
+    
+    private static ConcurrentDictionary<Server, Server> CreateServerDictionary(params Server[] servers)
+    {
+        var dict = new ConcurrentDictionary<Server, Server>();
+        foreach (var s in servers)
+        {
+            dict.TryAdd(s, s);
+        }
+        return dict;
+    }
     
     [Fact]
     public void Constructor_Throws_WhenNoServersConfigured()
     {
-        var servers = Array.Empty<Server>();
-        
-        var action = () => new ServerProvider(_logger, servers);
-        action.Should().Throw<ApplicationException>().WithMessage("No servers configured");
+        var emptyServers = new ConcurrentDictionary<Server, Server>();
+        var clusterState = new ClusterState(emptyServers);
+
+        var action = () => new ServerProvider(_logger, clusterState, _options);
+
+        action.Should().Throw<NoAvailableServersException>().WithMessage("No servers configured");
     }
 
     [Fact]
-    public void GetNextServer_ReturnsFirstServer()
+    public async Task GetNextServer_ReturnsFirstServer()
     {
-        var server1 = Mock.Of<Server>();
-        var server2 = Mock.Of<Server>();
-        var servers = new List<Server> { server1, server2 };
+        var server1 = new Server(_ip, 1, new ServerState(0, true));
+        var server2 = new Server(_ip, 2, new ServerState(0, true));
+        var servers = CreateServerDictionary(server1, server2);
+        var clusterState = new ClusterState(servers);
 
-        var provider = new ServerProvider(_logger, servers);
-        
-        var result = provider.GetNextServer();
-        
+        var provider = new ServerProvider(_logger, clusterState, _options);
+
+        var result = await provider.GetNextServer(CancellationToken.None);
+
         result.Should().Be(server1);
     }
     
     [Fact]
-    public void SetServerUsed_ReturnsSecondServer()
+    public async Task SetServerUsed_IncrementsUsageCount()
     {
-        var server1 = new Server(_ip, 1, new ServerMetadata(true, 0));
-        var server2 = new Server(_ip, 2, new ServerMetadata(true, 0));
-        var servers = new List<Server> { server1, server2 };
+        var server1 = new Server(_ip, 1, new ServerState(0, true));
+        var server2 = new Server(_ip, 2, new ServerState(0, true));
+        var servers = CreateServerDictionary(server1, server2);
+        var clusterState = new ClusterState(servers);
+
+        var provider = new ServerProvider(_logger, clusterState, _options);
+
+        var selected = await provider.GetNextServer(CancellationToken.None);
+        provider.SetServerUsed(selected);
+
+        // Fetch the updated value from the dictionary
+        servers.TryGetValue(selected, out var updatedServer).Should().BeTrue();
+        updatedServer!.State.TimesUsed.Should().Be(1);
+    }
+    
+    [Fact]
+    public async Task GetNextServer_SkipsUnhealthyServers()
+    {
+        var unhealthy = new Server(_ip, 1, new ServerState(0, false));
+        var healthy = new Server(_ip, 2, new ServerState(0, true));
+
+        var servers = CreateServerDictionary(unhealthy, healthy);
+        var clusterState = new ClusterState(servers);
+
+        var provider = new ServerProvider(_logger, clusterState, _options);
+
+        var result = await provider.GetNextServer(CancellationToken.None);
+
+        result.Should().Be(healthy);
+    }
+    
+    [Fact]
+    public async Task SetServerUsed_ReturnsSecondServer()
+    {
+        var server1 = new Server(_ip, 1, new ServerState(0, true));
+        var server2 = new Server(_ip, 2, new ServerState(0, true));
         
-        var provider = new ServerProvider(_logger, servers);
-        
-        var potentialServer = provider.GetNextServer();
+        var servers = CreateServerDictionary(server1, server2);
+        var clusterState = new ClusterState(servers);
+    
+        var provider = new ServerProvider(_logger, clusterState, _options);
+    
+        var potentialServer = await provider.GetNextServer(CancellationToken.None);
         provider.SetServerUsed(potentialServer);
-        
-        var result = provider.GetNextServer();
-        
+    
+        var result = await provider.GetNextServer(CancellationToken.None);
+    
         result.Should().Be(server2);
-    }
-    
-    [Fact]
-    public void SetServerUsed_UpdatesServerMetadata()
-    {
-        var server1 = new Server(_ip, 1, new ServerMetadata(true, 0));
-        var server2 = new Server(_ip, 2, new ServerMetadata(true, 0));
-        var servers = new List<Server> { server1, server2 };
-        
-        var provider = new ServerProvider(_logger, servers);
-        
-        var potentialServer = provider.GetNextServer();
-        provider.SetServerUsed(potentialServer);
-        
-        server1.Should().Be(potentialServer);
-        server1.Metadata.Should().BeEquivalentTo(new ServerMetadata(true, 1));
-    }
-    
-    [Fact]
-    public void SetServerAsUnresponsive_ReturnsSecondServer()
-    {
-        var server1 = new Server(_ip, 1, new ServerMetadata(true, 0));
-        var server2 = new Server(_ip, 2, new ServerMetadata(true, 0));
-        var servers = new List<Server> { server1, server2 };
-        
-        var provider = new ServerProvider(_logger, servers);
-        
-        var potentialServer = provider.GetNextServer();
-        provider.SetServerAsUnresponsive(potentialServer);
-        
-        server1.Should().Be(potentialServer);
-        server1.Metadata.Should().BeEquivalentTo(new ServerMetadata(false, 0));
     }
 }

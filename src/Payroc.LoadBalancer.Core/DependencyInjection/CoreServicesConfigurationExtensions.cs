@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Payroc.LoadBalancer.Core.Backend;
@@ -16,6 +17,7 @@ public static class CoreServicesConfigurationExtensions
         serviceCollection.RegisterOptionsFromConfiguration(configuration);
 
         serviceCollection.AddSingleton<IServerProvider, ServerProvider>();
+        serviceCollection.AddSingleton<IServerUpdater, ServerProvider>();
         serviceCollection.AddSingleton<ITrafficForwarder, TrafficForwarder>();
         serviceCollection.AddSingleton<ILoadBalancer, Services.LoadBalancer>();
         
@@ -28,6 +30,7 @@ public static class CoreServicesConfigurationExtensions
     {
         LoadBalancerOptions loadBalancerOptions = new();
         configuration.GetSection(nameof(LoadBalancerOptions)).Bind(loadBalancerOptions);
+        serviceCollection.AddSingleton(loadBalancerOptions);
         
         var (serverAddress, serverPort) = ValidateOptionsOrThrow(loadBalancerOptions.ServerLocation!);
         var loadBalancerServer = new LoadBalancerServer(serverAddress, serverPort);
@@ -39,9 +42,13 @@ public static class CoreServicesConfigurationExtensions
         var servers = serverProviderOptions.Servers.Select(server =>
         {
             var (address, port) = ValidateOptionsOrThrow(server);
-            return new Server(address, port, new ServerMetadata(true, 0));
-        }).ToList();
+            return new Server(address, port, new ServerState(0, true));
+        });
         
-        serviceCollection.AddSingleton<IReadOnlyCollection<Server>>(servers);
+        var concurrentDictionary = new ConcurrentDictionary<Server, Server>(
+            servers.Select(x => new KeyValuePair<Server, Server>(x, x)));
+        
+        var clusterState = new ClusterState(concurrentDictionary);
+        serviceCollection.AddSingleton(clusterState);
     }
 }
