@@ -20,7 +20,7 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
         {
             await using var clientStream = client.GetStream();
             await using var backendStream = backendClient.GetStream();
-            
+
             var clientToBackend = clientStream.CopyToAsync(backendStream, cancellationToken);
             var backendToClient = backendStream.CopyToAsync(clientStream, cancellationToken);
             
