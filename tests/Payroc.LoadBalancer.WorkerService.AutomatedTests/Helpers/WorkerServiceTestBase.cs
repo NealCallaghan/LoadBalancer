@@ -9,7 +9,6 @@ namespace Payroc.LoadBalancer.WorkerService.AutomatedTests.Helpers;
 /// <summary>
 /// Base class for automated and integration tests using WebApplicationFactory of TEntryPoint.
 /// Provides access to the dependency injection container and access to any instance in the system.
-/// Also provides an instance of IMessageBusHelper for publishing and receiving events.
 /// </summary>
 /// <typeparam name="TWebApplicationFactory">The web application factory for starting up
 /// integration and automated tests</typeparam>
@@ -46,7 +45,6 @@ public abstract class WorkerServiceTestBase<TWebApplicationFactory, TEntryPoint>
 
         Services = ContainerApplicationFactory.Services;
         Client = Services.GetRequiredService<IHttpClientFactory>().CreateClient();
-        Client.DefaultRequestHeaders.ConnectionClose = true; //Ensures connections are new
     }
 
     public IServiceProvider Services { get; }

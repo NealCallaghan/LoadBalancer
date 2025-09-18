@@ -22,22 +22,12 @@ public class LoadBalancerWebApplicationFactory : WebApplicationFactory <Program>
 
         builder.ConfigureAppConfiguration((_, config) =>
         {
-            //config.Build().GetRequiredSection(nameof(MessageBusEndpoints)).Bind(messageBusEndpoints);
+
         });
 
         builder.ConfigureTestServices(services =>
         {
             //TODO we still need these for the time being.
-            //services.AddSingleton<IInterceptor, PageNotificationCompletionInterceptor>();
-
-            //var consumerTypes = new MessageBusEndpoint[]
-            //{
-            //    new Consumer(messageBusEndpoints.ConsumeTopicName!, typeof(IPageNotificationConsumer),
-            //        typeof(DocumentInvalid)),
-            //    new Consumer(messageBusEndpoints.PublishTopicName!, typeof(IPublishedConsumer), typeof(BatchCompleted)),
-            //};
-
-            //services.AddTestDependencies(consumerTypes, typeof(IPublishedConsumer).Assembly);
         });
     }
 }

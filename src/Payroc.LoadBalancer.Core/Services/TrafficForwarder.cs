@@ -20,12 +20,24 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
         {
             await using var clientStream = client.GetStream();
             await using var backendStream = backendClient.GetStream();
+            
+            
+            
+            var clientBuffer = new byte[1024];
+            var serverBuffer = new byte[1024];
+            
+            await clientStream.ReadAsync(clientBuffer, 0, clientBuffer.Length, cancellationToken);
+            await backendStream.WriteAsync(clientBuffer, 0, clientBuffer.Length,  cancellationToken);
+            
+            await backendStream.ReadAsync(serverBuffer, 0, serverBuffer.Length, cancellationToken);
+            await clientStream.WriteAsync(serverBuffer, 0, clientBuffer.Length, cancellationToken);
+            
 
-            var clientToBackend = clientStream.CopyToAsync(backendStream, cancellationToken);
-            var backendToClient = backendStream.CopyToAsync(clientStream, cancellationToken);
+            // var clientToBackend = clientStream.CopyToAsync(backendStream, cancellationToken);
+            // var backendToClient = backendStream.CopyToAsync(clientStream, cancellationToken);
             
             // we want to wait for both sides to flush their data
-            await Task.WhenAll(clientToBackend, backendToClient);
+            //await Task.WhenAll(clientToBackend, backendToClient);
             logger.LogDebug("Successfully forwarded data at {TimeNow}", DateTime.UtcNow);
             
             client.Close();
