@@ -19,11 +19,11 @@ public class HealthChecker(
             try
             {
                 var client = httpClientFactory.CreateClient();
-                var servers = clusterState.ServerDictionary.Keys.ToList();
+                var servers = clusterState.ServerDictionary.ToList();
 
-                foreach (var server in servers)
+                foreach (var (server, state) in servers)
                 {
-                    var healthUri = new Uri($"http://{server.IpAddress}:{server.Port}/health");
+                    var healthUri = new Uri($"http://{server.Address}:{server.Port}/health");
 
                     bool healthy;
                     try
@@ -32,16 +32,16 @@ public class HealthChecker(
                         var healthResponse = await response.Content.ReadAsStringAsync(cancellationToken);
                         healthy = response.IsSuccessStatusCode && healthResponse == "Healthy";
                     }
-                    catch
+                    catch(Exception ex)
                     {
+                        logger.LogError(ex, "Unable to contact server");
                         healthy = false;
                     }
 
                     if (!healthy)
                     {
-                        var unhealthyState = server.State with { Healthy = false };
-                        var unhealthyServer = new Server(server.IpAddress, server.Port, unhealthyState);
-                        clusterState.ServerDictionary.AddOrUpdate(server, unhealthyServer, (_,_)  => unhealthyServer);
+                        var unhealthyState = state with { Healthy = false };
+                        clusterState.ServerDictionary.AddOrUpdate(server, unhealthyState, (_, _) => unhealthyState);
                     }
                 }
             }

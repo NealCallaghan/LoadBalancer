@@ -10,7 +10,7 @@ public sealed class ServerProvider : IServerProvider, IServerUpdater
     private readonly ILogger<ServerProvider> _logger;
     private readonly LoadBalancerOptions _loadBalancerOptions;
 
-    private readonly ConcurrentDictionary<Server, Server> _servers;
+    private readonly ConcurrentDictionary<ServerAddressAndPort, ServerState> _servers;
     
     public ServerProvider(ILogger<ServerProvider> logger, ClusterState clusterState, LoadBalancerOptions loadBalancerOptions)
     {
@@ -23,20 +23,19 @@ public sealed class ServerProvider : IServerProvider, IServerUpdater
         }
     }
     
-    public async Task<Server> GetNextServer(CancellationToken cancellationToken)
+    public async Task<ServerAddressAndPort> GetNextServer(CancellationToken cancellationToken)
     {
         _logger.LogDebug("Getting next server");
         
         while (!cancellationToken.IsCancellationRequested)
         {
-            var resultServer = _servers
-                .Values
-                .OrderBy(x => x.State.TimesUsed) // This will do for now
-                .FirstOrDefault(x => x.State.Healthy);
-
-            if (resultServer != null)
+            var (addressAndPort, _) = _servers
+                .OrderBy(x => x.Value.TimesUsed)
+                .FirstOrDefault(x => x.Value.Healthy);
+            
+            if (addressAndPort != null)
             {
-                return  resultServer;
+                return addressAndPort;
             }
             
             _logger.LogDebug(
@@ -51,12 +50,13 @@ public sealed class ServerProvider : IServerProvider, IServerUpdater
         throw new OperationCanceledException("Request cancelled while waiting for a healthy server.");
     }
 
-    public void SetServerUsed(Server server)
+    public void SetServerUsed(ServerAddressAndPort server)
     {
-        var newServerState = server.State with { TimesUsed = server.State.TimesUsed + 1 };
-        var newServer = server with { State = newServerState };
+        _servers.TryGetValue(server, out var serverState);
+
+        var newServerState = serverState! with { TimesUsed = serverState.TimesUsed + 1 };
         
-        _servers.AddOrUpdate(server, newServer, (_, _) => newServer);
+        _servers.AddOrUpdate(server, newServerState, (_, _) => newServerState);
         
         _logger.LogDebug("Marked server {Server} as used.", server);
     }

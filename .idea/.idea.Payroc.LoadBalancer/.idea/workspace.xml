@@ -8,7 +8,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="" />
+    <list default="true" id="d2212ec5-ccb2-4a44-b4e6-2107913d2be5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Payroc.LoadBalancer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerUpdater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/IServerUpdater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Backend/ServerProvider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/CoreServicesConfigurationExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/HealthChecker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/HealthChecker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.Testing.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.override.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/HealthCheckerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/HealthCheckerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +51,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/271b8d2d9d94e13a469269f46758864f64ad438c3174f74d4a591af6410e96b/Future.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/38284ca4f4afe378f96fccac3e179f4bceda7a74eb151623b66d2dc3634d9b/ExceptionAggregator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c32b6774a69464667352a9e262bc924c57674f811c382e29abe8dbe3639f4c/CancellationToken.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +59,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/621526284d3e4868b98948aff942206525763e57e194a27623b66c384466/ServiceProviderServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9ee76fb4aded5e9da6e66cc2dcb127fac08d3ec5ac84fc6db9d4ee1d2e38/Monitor.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d78ec5c0fb7ba56957fd333fbff0249fec2c22ea9ef638c5b1ea31a598f56f/Socket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/eac145bca2a599f9b0eff14a2a49c9eeb958a06dc5964346dab893a6b1ce83c/Guard.Null.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/HttpServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/DependencyInjection/Options/OptionsHelper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,24 +81,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;351caa88-fdc3-4ddf-9211-5385fe7a1ee5.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/6-pipeline&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/neal/Documents/dev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "351caa88-fdc3-4ddf-9211-5385fe7a1ee5.executor": "Debug",
+    "Docker.src: Compose Deployment.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "bugfix/docker-issues",
+    "last_opened_file_path": "/home/neal/Documents/dev",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Payroc.LoadBalancer.WorkerService">
+}]]></component>
+  <component name="RunManager" selected="Docker.src: Compose Deployment">
     <configuration name="Payroc.LoadBalancer.WorkerService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Payroc.LoadBalancer.WorkerService/Payroc.LoadBalancer.WorkerService.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -137,6 +158,7 @@
       <workItem from="1758185719350" duration="111000" />
       <workItem from="1758185888068" duration="14825000" />
       <workItem from="1758202251998" duration="2913000" />
+      <workItem from="1758478440553" duration="8868000" />
     </task>
     <servers />
   </component>
@@ -225,56 +247,17 @@
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs</url>
-          <line>11</line>
-          <properties documentPath="$PROJECT_DIR$/src/Payroc.LoadBalancer.Core/Services/TrafficForwarder.cs" containingFunctionPresentation="Method 'HandleForwarding'">
-            <startOffsets>
-              <option value="409" />
-            </startOffsets>
-            <endOffsets>
-              <option value="476" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs</url>
-          <line>97</line>
+          <line>95</line>
           <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.WorkerService.AutomatedTests/EndToEndTests.cs" containingFunctionPresentation="Method 'SetServerHealthy'">
             <startOffsets>
-              <option value="3547" />
+              <option value="3453" />
             </startOffsets>
             <endOffsets>
-              <option value="3613" />
+              <option value="3519" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs</url>
-          <line>52</line>
-          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" containingFunctionPresentation="Method 'GetNextServer_ReturnsFirstServer'">
-            <startOffsets>
-              <option value="1774" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1840" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs</url>
-          <line>103</line>
-          <properties documentPath="$PROJECT_DIR$/tests/Payroc.LoadBalancer.Core.UnitTests/ServerProviderTests.cs" containingFunctionPresentation="Method 'SetServerUsed_ReturnsSecondServer'">
-            <startOffsets>
-              <option value="3674" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3714" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

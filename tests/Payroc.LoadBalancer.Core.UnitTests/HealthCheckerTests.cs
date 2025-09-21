@@ -1,6 +1,5 @@
 using System.Net;
 using System.Collections.Concurrent;
-using System.Net.Http;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -29,11 +28,14 @@ public class HealthCheckerTests
     public async Task Initialize_MarksServerUnhealthy_WhenRequestFails()
     {
         // Arrange
-        var server = new Server(IPAddress.Loopback, 8080, new ServerState(TimesUsed: 0, Healthy: true));
-        var serverDictionary = new ConcurrentDictionary<Server, Server>
-        {
-            [server] = server
-        };
+        var serverState = new ServerState(TimesUsed: 0, Healthy: true);
+        var serverAddress = new ServerAddressAndPort("127.0.0.1", 8080);
+        var serverDictionary = new ConcurrentDictionary<ServerAddressAndPort, ServerState>(
+            new[]
+            {
+                new KeyValuePair<ServerAddressAndPort, ServerState>(serverAddress, serverState)
+            }
+        );
 
         var clusterState = new ClusterState(serverDictionary);
         // Return 500 with empty content
@@ -52,18 +54,21 @@ public class HealthCheckerTests
 
         clusterState.ServerDictionary.Values.Should().ContainSingle();
         var updatedServer = clusterState.ServerDictionary.Values.First();
-        updatedServer.State.Healthy.Should().BeFalse(); // should now be unhealthy
+        updatedServer.Healthy.Should().BeFalse(); // should now be unhealthy
     }
 
     [Fact]
     public async Task Initialize_LeavesServerHealthy_WhenRequestSucceeds()
     {
         // Arrange
-        var server = new Server(IPAddress.Loopback, 8080, new ServerState(TimesUsed: 0, Healthy: true));
-        var serverDictionary = new ConcurrentDictionary<Server, Server>
-        {
-            [server] = server
-        };
+        var serverState = new ServerState(TimesUsed: 0, Healthy: true);
+        var serverAddress = new ServerAddressAndPort("127.0.0.1", 8080);
+        var serverDictionary = new ConcurrentDictionary<ServerAddressAndPort, ServerState>(
+            new[]
+            {
+                new KeyValuePair<ServerAddressAndPort, ServerState>(serverAddress, serverState)
+            }
+        );
 
         var clusterState = new ClusterState(serverDictionary);
         // Return 200 with "Healthy" content
@@ -81,7 +86,7 @@ public class HealthCheckerTests
         await action.Should().ThrowAsync<OperationCanceledException>();
 
         var updatedServer = clusterState.ServerDictionary.Values.First();
-        updatedServer.State.Healthy.Should().BeTrue(); // should still be healthy
+        updatedServer.Healthy.Should().BeTrue(); // should still be healthy
     }
 
     private class StubHttpMessageHandler : HttpMessageHandler
