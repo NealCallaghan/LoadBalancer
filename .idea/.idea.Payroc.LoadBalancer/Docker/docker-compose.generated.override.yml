@@ -1,0 +1,89 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  loadbalancer:
+    build:
+      context: "/home/neal/Documents/dev/LoadBalancer"
+      dockerfile: "Dockerfile"
+      target: "build"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    command: []
+    entrypoint:
+    - "/opt/JetBrains/RiderDebuggerTools/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/JetBrains/RiderDebuggerTools/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57000"
+    - "--backend-port=57200"
+    - "--roslyn-worker-port=57496"
+    - "--timeout=60"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/JetBrains/RiderDebuggerTools"
+      RESHARPER_LOG_CONF: "/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    image: "payroc.loadbalancer.workerservice:dev"
+    ports:
+    - "127.0.0.1:57096:57000"
+    - "127.0.0.1:57296:57200"
+    - "127.0.0.1:57496:57496"
+    volumes:
+    - "/home/neal/Documents/dev/LoadBalancer/src/Payroc.LoadBalancer.WorkerService:/app:rw"
+    - "/home/neal/Documents/dev/LoadBalancer:/src:rw"
+    - "/home/neal/.nuget/packages:/root/.nuget/packages"
+    - "/home/neal/.local/share/JetBrains/RiderRemoteDebugger/2025.2.2/Linux64:/opt/JetBrains/RiderDebuggerTools"
+    - "/snap/rider/634/bin/backend-log.xml:/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    - "/home/neal/.cache/JetBrains/Rider2025.2/log/DebuggerWorker/JetBrains.Debugger.Worker.2025_9_21_21_39_26:/var/opt/JetBrains/RiderDebuggerTools:rw"
+    working_dir: "/app"
+  testserver1:
+    build:
+      context: "/home/neal/Documents/dev/LoadBalancer/TestApplications/TestServer/TestServer"
+      dockerfile: "Dockerfile"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    entrypoint:
+    - "/opt/JetBrains/RiderDebuggerTools/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/JetBrains/RiderDebuggerTools/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57000"
+    - "--backend-port=57200"
+    - "--roslyn-worker-port=57497"
+    - "--timeout=60"
+    environment:
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/JetBrains/RiderDebuggerTools"
+      RESHARPER_LOG_CONF: "/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    ports:
+    - "127.0.0.1:57097:57000"
+    - "127.0.0.1:57297:57200"
+    - "127.0.0.1:57497:57497"
+    volumes:
+    - "/home/neal/.local/share/JetBrains/RiderRemoteDebugger/2025.2.2/Linux64:/opt/JetBrains/RiderDebuggerTools"
+    - "/snap/rider/634/bin/backend-log.xml:/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    - "/home/neal/.cache/JetBrains/Rider2025.2/log/DebuggerWorker/JetBrains.Debugger.Worker.2025_9_21_21_39_26:/var/opt/JetBrains/RiderDebuggerTools:rw"
+  testserver2:
+    build:
+      context: "/home/neal/Documents/dev/LoadBalancer/TestApplications/TestServer/TestServer"
+      dockerfile: "Dockerfile"
+      args:
+        BUILD_CONFIGURATION: "Debug"
+    entrypoint:
+    - "/opt/JetBrains/RiderDebuggerTools/linux-x64/JetBrains.Debugger.Worker"
+    - "--runtimeconfig"
+    - "/opt/JetBrains/RiderDebuggerTools/JetBrains.Debugger.Worker.runtimeconfig.json"
+    - "--mode=server"
+    - "--frontend-port=57000"
+    - "--backend-port=57200"
+    - "--roslyn-worker-port=57498"
+    - "--timeout=60"
+    environment:
+      RIDER_DEBUGGER_LOG_DIR: "/var/opt/JetBrains/RiderDebuggerTools"
+      RESHARPER_LOG_CONF: "/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    ports:
+    - "127.0.0.1:57098:57000"
+    - "127.0.0.1:57298:57200"
+    - "127.0.0.1:57498:57498"
+    volumes:
+    - "/home/neal/.local/share/JetBrains/RiderRemoteDebugger/2025.2.2/Linux64:/opt/JetBrains/RiderDebuggerTools"
+    - "/snap/rider/634/bin/backend-log.xml:/etc/opt/JetBrains/RiderDebuggerTools/backend-log.xml"
+    - "/home/neal/.cache/JetBrains/Rider2025.2/log/DebuggerWorker/JetBrains.Debugger.Worker.2025_9_21_21_39_26:/var/opt/JetBrains/RiderDebuggerTools:rw"

@@ -44,14 +44,13 @@ public static class CoreServicesConfigurationExtensions
         ServerProviderOptions serverProviderOptions = new();
         configuration.GetSection(nameof(ServerProviderOptions)).Bind(serverProviderOptions);
         
-        var servers = serverProviderOptions.Servers.Select(server =>
-        {
-            var (address, port) = ValidateOptionsOrThrow(server);
-            return new Server(address, port, new ServerState(0, true));
-        });
+        var servers = serverProviderOptions
+            .Servers
+            .Select(server => 
+                new Server(new ServerAddressAndPort(server.Address!, server.Port), new ServerState(0, true)));
         
-        var concurrentDictionary = new ConcurrentDictionary<Server, Server>(
-            servers.Select(x => new KeyValuePair<Server, Server>(x, x)));
+        var concurrentDictionary = new ConcurrentDictionary<ServerAddressAndPort, ServerState>(
+            servers.Select(x => new KeyValuePair<ServerAddressAndPort, ServerState>(x.ServerAddressAndPort, x.State)));
         
         var clusterState = new ClusterState(concurrentDictionary);
         serviceCollection.AddSingleton(clusterState);

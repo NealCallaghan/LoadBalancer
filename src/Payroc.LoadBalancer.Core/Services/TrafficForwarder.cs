@@ -12,17 +12,16 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
         var server = await serverProvider.GetNextServer(cancellationToken);
         using var backendClient = new TcpClient();
         
-        // TODO what happens if there is an exception here
-        await backendClient.ConnectAsync(server.IpAddress, server.Port, cancellationToken);
-        logger.LogDebug("Established a connection to server on {IpAddress}:{Port} at {TimeNow}", server.IpAddress, server.Port, DateTime.UtcNow);
+        // TODO I would like to have introduced Polly here for retries
+        await backendClient.ConnectAsync(server.Address, server.Port, cancellationToken);
+
+        logger.LogDebug("Established a connection to server on {IpAddress}:{Port} at {TimeNow}", server.Address, server.Port, DateTime.UtcNow);
         
         using (client)
         {
             await using var clientStream = client.GetStream();
             await using var backendStream = backendClient.GetStream();
-            
-            
-            
+
             var clientBuffer = new byte[1024];
             var serverBuffer = new byte[1024];
             
@@ -32,12 +31,6 @@ public class TrafficForwarder(ILogger<TrafficForwarder> logger, IServerProvider 
             await backendStream.ReadAsync(serverBuffer, 0, serverBuffer.Length, cancellationToken);
             await clientStream.WriteAsync(serverBuffer, 0, clientBuffer.Length, cancellationToken);
             
-
-            // var clientToBackend = clientStream.CopyToAsync(backendStream, cancellationToken);
-            // var backendToClient = backendStream.CopyToAsync(clientStream, cancellationToken);
-            
-            // we want to wait for both sides to flush their data
-            //await Task.WhenAll(clientToBackend, backendToClient);
             logger.LogDebug("Successfully forwarded data at {TimeNow}", DateTime.UtcNow);
             
             client.Close();
