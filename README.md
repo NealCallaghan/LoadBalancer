@@ -8,3 +8,5 @@ You should be able to run the solution by using `docker compose up --build` from
 There is a docker compose project within the solution that should allow you to run the project in debug mode.
 
 Additionally the tests should all run and pass on the pipeline.
+
+To see a demonstration, run the compose file and go to localhost:5000. You should see a response from one server, refresh and you will get a response from the next.
